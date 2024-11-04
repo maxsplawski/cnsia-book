@@ -32,5 +32,6 @@ jobs:
           severity-cutoff: high
       - name: Build, unit tests and integration tests
         run: |
+          cd ${{ matrix.project }}
           chmod +x gradlew
           ./gradlew build
