@@ -16,7 +16,7 @@ spring:
     config:
       server:
         git:
-          uri: file:///Users/mac/Documents/Programming/cnsia-book/chapter04/config-repo
+          uri: https://github.com/PolarBookshop/config-repo
           default-label: main
           timeout: 5
           clone-on-start: true
