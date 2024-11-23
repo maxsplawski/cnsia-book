@@ -14,6 +14,7 @@ services:
   catalog-service:
     depends_on:
       - polar-postgres
+      - config-service
     image: "catalog-service"
     container_name: "catalog-service"
     ports:
