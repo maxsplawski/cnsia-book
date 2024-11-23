@@ -1,3 +1,5 @@
+import org.springframework.boot.gradle.tasks.bundling.BootBuildImage
+
 plugins {
 	java
 	id("org.springframework.boot") version "3.3.5"
@@ -33,4 +35,17 @@ dependencyManagement {
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+}
+
+tasks.named<BootBuildImage>("bootBuildImage") {
+	imageName.set(project.name)
+	environment.put("BP_JVM_VERSION", "17.*")
+
+	docker {
+		publishRegistry {
+			username.set("${project.findProperty("registryUsername")}")
+			password.set("${project.findProperty("registryToken")}")
+			url.set("${project.findProperty("registryUrl")}")
+		}
+	}
 }
